@@ -42,6 +42,10 @@ function runFilter() {
 
     // make sure date is captured as the variable correctly
     console.log(inputDate);
+    console.log(inputCity);
+    console.log(inputState);
+    console.log(inputCountry);
+    console.log(inputshape);
    
     
     // create function to return values of filter

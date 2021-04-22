@@ -36,7 +36,7 @@ function runFilter() {
     var inputCountry = userCountry.property("value");
 
     var userShape = d3.select("#shape");
-    var inputshape = userShape.property("value");
+    var inputShape = userShape.property("value");
 
 
 
@@ -45,7 +45,7 @@ function runFilter() {
     console.log(inputCity);
     console.log(inputState);
     console.log(inputCountry);
-    console.log(inputshape);
+    console.log(inputShape);
    
     
     // create function to return filtered values
@@ -57,54 +57,66 @@ function runFilter() {
     }
     
     
-    
     if (inputCity != "") {
         var cityFiltered = dateFiltered.filter(ufoEvents => ufoEvents.city === inputCity);
         // console.log(cityFiltered)
     } else {
         cityFiltered = dateFiltered
+        // console.log(cityFiltered)
     }
 
 
     if (inputState != "") {
         var stateFiltered = cityFiltered.filter(ufoEvents => ufoEvents.state === inputState);
-        console.log(stateFiltered)
+        // console.log(stateFiltered)
     } else {
         stateFiltered = cityFiltered
-        console.log(stateFiltered)
+        // console.log(stateFiltered)
     }
 
 
-    // // declare the results as a new variable
-    // var returnedResults = tableData.filter(selectDate);
+    if (inputCountry != "") {
+        var countryFiltered = stateFiltered.filter(ufoEvents => ufoEvents.country === inputCountry);
+        // console.log(countryFiltered)
+    } else {
+        countryFiltered = stateFiltered
+        // console.log(countryFiltered)
+    }
 
-    // // if the returnedResults variable is a non-empty array, show filtered results
-    // // if the returnedResults variable is an empty array, show all the data
-    // if (returnedResults.length > 0) {
-    //     console.log(returnedResults);
 
-    //     returnedResults.forEach(function(ufoResults) {
-    //         var row = tbody.append("tr");
-    //         Object.entries(ufoResults).forEach(function([key,value]) {
-    //             var cell = row.append("td");
-    //             cell.text(value);
-    //         });
-    //     });
+    if (inputShape != "") {
+        var shapeFiltered = countryFiltered.filter(ufoEvents => ufoEvents.shape === inputShape);
+        console.log(shapeFiltered)
+    } else {
+        shapeFiltered = countryFiltered
+        console.log(shapeFiltered)
+    }
 
-    // } else {
-    //     console.log(tableData);
+    // if the returnedResults variable is a non-empty array, show filtered results
+    // if the returnedResults variable is an empty array, show all the data
+    if (returnedResults.length > 0) {
+        console.log(returnedResults);
 
-    //     tableData.forEach(function(ufoResults) {
-    //         var row = tbody.append("tr");
-    //         Object.entries(ufoResults).forEach(function([key,value]) {
-    //             var cell = row.append("td");
-    //             cell.text(value);
-    //         });
-    //     });
+        returnedResults.forEach(function(ufoResults) {
+            var row = tbody.append("tr");
+            Object.entries(ufoResults).forEach(function([key,value]) {
+                var cell = row.append("td");
+                cell.text(value);
+            });
+        });
+
+    } else {
+        console.log(tableData);
+
+        tableData.forEach(function(ufoResults) {
+            var row = tbody.append("tr");
+            Object.entries(ufoResults).forEach(function([key,value]) {
+                var cell = row.append("td");
+                cell.text(value);
+            });
+        });
     
-    // }
+    }
    
-    // alternate way of creating the filter function and displaying the results.
-    // console.log(tableData.filter(ufoEvents => ufoEvents.datetime === inputeDate));
 
 }

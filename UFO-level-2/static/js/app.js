@@ -60,17 +60,18 @@ function runFilter() {
     
     if (inputCity != "") {
         var cityFiltered = dateFiltered.filter(ufoEvents => ufoEvents.city === inputCity);
-        console.log(cityFiltered)
+        // console.log(cityFiltered)
     } else {
         cityFiltered = dateFiltered
     }
 
 
     if (inputState != "") {
-        var stateFiltered = cityFiltered.filter(ufoEvents => ufoEvents.city === inputState);
+        var stateFiltered = cityFiltered.filter(ufoEvents => ufoEvents.state === inputState);
         console.log(stateFiltered)
     } else {
         stateFiltered = cityFiltered
+        console.log(stateFiltered)
     }
 
 

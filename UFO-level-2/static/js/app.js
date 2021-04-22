@@ -48,61 +48,62 @@ function runFilter() {
     console.log(inputshape);
    
     
-    // create function to return values of filter
-    if (inputDate.length > 0) {
-        // function selectDate(ufoEvents) {
-        //     return ufoEvents.datetime === inputDate;
-        // }
-        
+    // create function to return filtered values
+    if (inputDate != "" ) {
         var dateFiltered = tableData.filter(ufoEvents => ufoEvents.datetime === inputDate);
-    }; 
+        // console.log(dateFiltered)
+    } else {
+        dateFiltered = tableData
+    }
     
-    if (inputCity.length > 0) {
-        function selectCity(ufoEvents) {
-            return ufoEvents.city === inputCity;
-        }
-        
-        var cityFiltered = dateFiltered.filter(ufoEvents => ufoEvents.city === inputeDate);
-    }; 
+    
+    
+    if (inputCity != "") {
+        var cityFiltered = dateFiltered.filter(ufoEvents => ufoEvents.city === inputCity);
+        console.log(cityFiltered)
+    } else {
+        cityFiltered = dateFiltered
+    }
 
 
+    if (inputState != "") {
+        var stateFiltered = cityFiltered.filter(ufoEvents => ufoEvents.city === inputState);
+        console.log(stateFiltered)
+    } else {
+        stateFiltered = cityFiltered
+    }
 
 
-
-
-    // declare the results as a new variable
+    // // declare the results as a new variable
     // var returnedResults = tableData.filter(selectDate);
 
-    // if the returnedResults variable is a non-empty array, show filtered results
-    // if the returnedResults variable is an empty array, show all the data
-    if (returnedResults.length > 0) {
-        console.log(returnedResults);
+    // // if the returnedResults variable is a non-empty array, show filtered results
+    // // if the returnedResults variable is an empty array, show all the data
+    // if (returnedResults.length > 0) {
+    //     console.log(returnedResults);
 
-        returnedResults.forEach(function(ufoResults) {
-            var row = tbody.append("tr");
-            Object.entries(ufoResults).forEach(function([key,value]) {
-                var cell = row.append("td");
-                cell.text(value);
-            });
-        });
+    //     returnedResults.forEach(function(ufoResults) {
+    //         var row = tbody.append("tr");
+    //         Object.entries(ufoResults).forEach(function([key,value]) {
+    //             var cell = row.append("td");
+    //             cell.text(value);
+    //         });
+    //     });
 
-    } else {
-        console.log(tableData);
+    // } else {
+    //     console.log(tableData);
 
-        tableData.forEach(function(ufoResults) {
-            var row = tbody.append("tr");
-            Object.entries(ufoResults).forEach(function([key,value]) {
-                var cell = row.append("td");
-                cell.text(value);
-            });
-        });
+    //     tableData.forEach(function(ufoResults) {
+    //         var row = tbody.append("tr");
+    //         Object.entries(ufoResults).forEach(function([key,value]) {
+    //             var cell = row.append("td");
+    //             cell.text(value);
+    //         });
+    //     });
     
-    }
+    // }
    
     // alternate way of creating the filter function and displaying the results.
     // console.log(tableData.filter(ufoEvents => ufoEvents.datetime === inputeDate));
 
 }
-
-
-

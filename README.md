@@ -3,7 +3,7 @@
 How common are UFO sightings?  Where do they occur?  What do they look like?  For this challenge, we are able to search a data set of UFO sightings to help us answer these burning questions.  There are two levels to granularity.
 * Level 1: Search by date only
 * Level 2: Search by date, city, state, country, and/or shape of encounter
-    * This portion of the assingment lives in the "root" in order for this to be hosted on github pages.\
+    * This portion of the assingment lives in the "root" in order for this to be hosted on github pages.
 
 The results of these searches are returned via the filter function in javascript and the d3 library.
 

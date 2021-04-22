@@ -14,9 +14,8 @@ var filterForm = d3.select("#form-control")
 button.on("click", runFilter);
 filterForm.on("submit", runFilter);
 
-
-
-
+// create reference to teh tbody section
+var tbody = d3.select("tbody")
 
 
 
@@ -39,13 +38,32 @@ function runFilter() {
     var returnedResults = tableData.filter(selectDate);
 
     // if the returnedResults variable is a non-empty array, show filtered results
-    // if teh returnedResults variable is an empty array, show all the data
+    // if the returnedResults variable is an empty array, show all the data
     if (returnedResults.length > 0) {
         console.log(returnedResults);
+
+        returnedResults.forEach(function(ufoResults) {
+            var row = tbody.append("tr");
+            Object.entries(ufoResults).forEach(function([key,value]) {
+                var cell = row.append("td");
+                cell.text(value);
+            });
+        });
+
     } else {
-        console.log(tableData)
+        console.log(tableData);
+
+        tableData.forEach(function(ufoResults) {
+            var row = tbody.append("tr");
+            Object.entries(ufoResults).forEach(function([key,value]) {
+                var cell = row.append("td");
+                cell.text(value);
+            });
+        });
+    
     }
    
+    // alternate way of creating the filter function and displaying the results.
     // console.log(tableData.filter(ufoEvents => ufoEvents.datetime === inputeDate));
 
 }

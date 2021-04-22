@@ -8,7 +8,7 @@ var tableData = data;
 var button = d3.select("#filter-btn")
 
 // select the form
-var filterForm = d3.select(".form-group")
+var filterForm = d3.select("form-group")
 
 // create the event handlers
 button.on("click", runFilter);
@@ -86,18 +86,23 @@ function runFilter() {
 
     if (inputShape != "") {
         var shapeFiltered = countryFiltered.filter(ufoEvents => ufoEvents.shape === inputShape);
-        console.log(shapeFiltered)
+        // console.log(shapeFiltered)
     } else {
         shapeFiltered = countryFiltered
-        console.log(shapeFiltered)
+        // console.log(shapeFiltered)
     }
 
-    // if the returnedResults variable is a non-empty array, show filtered results
-    // if the returnedResults variable is an empty array, show all the data
-    if (returnedResults.length > 0) {
-        console.log(returnedResults);
 
-        returnedResults.forEach(function(ufoResults) {
+    // clear out table of pre-exsisting data
+    tbody.html(""); // Thanks to Sharon Templin for helping me to find a way to clear out my table before loading the new results
+
+    // put filtered results into the html table
+    // if the shapeFiltered variable is a non-empty array, show filtered results
+    // if the shapeFiltered variable is an empty array, show all the data
+    if (shapeFiltered.length > 0) {
+        console.log(shapeFiltered);
+
+        shapeFiltered.forEach(function(ufoResults) {
             var row = tbody.append("tr");
             Object.entries(ufoResults).forEach(function([key,value]) {
                 var cell = row.append("td");

@@ -26,17 +26,17 @@ function runFilter() {
     var userDate = d3.select("#datetime");
     var inputDate = userDate.property("value");
 
-    var userDate = d3.select("#city");
-    var inputDate = userDate.property("value");
+    var userCity = d3.select("#city");
+    var inputCity = userCity.property("value");
 
-    var userDate = d3.select("#state");
-    var inputDate = userDate.property("value");
+    var userState = d3.select("#state");
+    var inputState = userState.property("value");
 
-    var userDate = d3.select("#country");
-    var inputDate = userDate.property("value");
+    var userCountry = d3.select("#country");
+    var inputCountry = userCountry.property("value");
 
-    var userDate = d3.select("#shape");
-    var inputDate = userDate.property("value");
+    var userShape = d3.select("#shape");
+    var inputshape = userShape.property("value");
 
 
 

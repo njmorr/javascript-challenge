@@ -18,14 +18,28 @@ filterForm.on("submit", runFilter);
 var tbody = d3.select("tbody")
 
 
-
+// create function to handle the filtering of results
 function runFilter() {
     // d3.event.preventDefault();
 
     // capture the datetime class as the input element and store that 'property value' as the inputDate variable
-    var inputElement = d3.select("#datetime");
-    var inputDate = inputElement.property("value");
-    
+    var userDate = d3.select("#datetime");
+    var inputDate = userDate.property("value");
+
+    var userDate = d3.select("#city");
+    var inputDate = userDate.property("value");
+
+    var userDate = d3.select("#state");
+    var inputDate = userDate.property("value");
+
+    var userDate = d3.select("#country");
+    var inputDate = userDate.property("value");
+
+    var userDate = d3.select("#shape");
+    var inputDate = userDate.property("value");
+
+
+
     // make sure date is captured as the variable correctly
     console.log(inputDate);
    

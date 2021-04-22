@@ -8,7 +8,7 @@ var tableData = data;
 var button = d3.select("#filter-btn")
 
 // select the form
-var filterForm = d3.select("form-group")
+var filterForm = d3.select("form")
 
 // create the event handlers
 button.on("click", runFilter);

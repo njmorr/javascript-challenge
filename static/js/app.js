@@ -12,7 +12,7 @@ var filterForm = d3.select("form")
 
 // create the event handlers
 button.on("click", runFilter);
-filterForm.on("submit", runFilter);
+filterForm.on("change", runFilter);
 
 // create reference to teh tbody section
 var tbody = d3.select("tbody")

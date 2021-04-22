@@ -8,7 +8,7 @@ var tableData = data;
 var button = d3.select("#filter-btn")
 
 // select the form
-var filterForm = d3.select(".form-group")
+var filterForm = d3.select("form")
 
 // create the event handlers
 button.on("click", runFilter);
@@ -20,7 +20,10 @@ var tbody = d3.select("tbody")
 
 
 function runFilter() {
-    // d3.event.preventDefault();
+    d3.event.preventDefault();
+
+    // clear out table of pre-exsisting data
+    tbody.html(""); // Thanks to Sharon Templin for helping me to find a way to clear out my table before loading the new results
 
     // capture the datetime class as the input element and store that 'property value' as the inputDate variable
     var inputElement = d3.select("#datetime");
@@ -37,6 +40,7 @@ function runFilter() {
     // declare the results as a new variable
     var returnedResults = tableData.filter(selectDate);
 
+    
     // if the returnedResults variable is a non-empty array, show filtered results
     // if the returnedResults variable is an empty array, show all the data
     if (returnedResults.length > 0) {

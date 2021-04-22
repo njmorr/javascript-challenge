@@ -40,7 +40,7 @@ function runFilter() {
 
 
 
-    // make sure date is captured as the variable correctly
+    // make sure user inputs are captured as theire respective variable correctly
     console.log(inputDate);
     console.log(inputCity);
     console.log(inputState);
@@ -49,11 +49,29 @@ function runFilter() {
    
     
     // create function to return values of filter
-    function selectDate(ufoEvents) {
-        return ufoEvents.datetime === inputDate;
-    }
+    if (inputDate.length > 0) {
+        // function selectDate(ufoEvents) {
+        //     return ufoEvents.datetime === inputDate;
+        // }
+        
+        var dateFiltered = tableData.filter(ufoEvents => ufoEvents.datetime === inputDate);
+    }; 
+    
+    if (inputCity.length > 0) {
+        function selectCity(ufoEvents) {
+            return ufoEvents.city === inputCity;
+        }
+        
+        var cityFiltered = dateFiltered.filter(ufoEvents => ufoEvents.city === inputeDate);
+    }; 
+
+
+
+
+
+
     // declare the results as a new variable
-    var returnedResults = tableData.filter(selectDate);
+    // var returnedResults = tableData.filter(selectDate);
 
     // if the returnedResults variable is a non-empty array, show filtered results
     // if the returnedResults variable is an empty array, show all the data
